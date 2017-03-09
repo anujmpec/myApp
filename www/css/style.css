@@ -1,0 +1,12 @@
+/* Empty. Add your own CSS if you like */
+.grid{
+height: 200px !important;
+}
+
+.grid-container .list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: stretch;
+}

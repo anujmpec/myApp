@@ -1,0 +1,62 @@
+<!-- <ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content drag-content="false">
+        <ion-nav-view name="menuAppContent" animation="slide-left-right"></ion-nav-view>
+    </ion-side-menu-content>
+
+    <ion-side-menu side="left">
+        <ion-content>
+            <div class="side-menu-logo">
+                <a class="logo">Restra</a>
+            </div>
+            <ion-list class="sidebar list-no-border">
+                <ion-item menu-close class="item-icon-left" ui-sref="app.category">
+                    <i class="icon ion-home"></i>
+                    Home
+                </ion-item>
+                <ion-item menu-close class="item-icon-left" ui-sref="app.category">
+                    <i class="icon ion-clipboard"></i>
+                    Menu
+                </ion-item>
+                <ion-item menu-close class="item-icon-left" ui-sref="app.category">
+                    <i class="icon ion-star"></i>
+                    Favorites
+                </ion-item>
+                <ion-item menu-close class="item-icon-left" ui-sref="app.profile">
+                    <i class="icon ion-person"></i>
+                    Profile
+                </ion-item>
+
+            </ion-list>
+            <div class="bar bar-footer bar-assertive">
+                     <h1 class="title" menu-close href="#" ui-sref="app.logout">Log out</h1>
+            </div>
+        </ion-content>
+
+    </ion-side-menu>
+           
+</ion-side-menus>
+
+ -->
+
+  <ion-view title="Home">
+
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+    </ion-nav-buttons> 
+    
+
+    <ion-tabs class="tabs-icon-top tabs-positive">
+
+      <ion-tab title="Home" icon="ion-home" href="#/app/category">
+        <ion-nav-view name="home-tab"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="Settings" icon="ion-gear-a" href="#/tab/settings" >
+        <ion-nav-view name="settings-tab"></ion-nav-view>
+      </ion-tab>
+
+      <ion-tab title="Sign-Out" icon="ion-log-out">
+      </ion-tab>
+
+    </ion-tabs>
+  </ion-view>
