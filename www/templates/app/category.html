@@ -1,12 +1,16 @@
 <ion-view title="Home">
      <ion-nav-buttons side="left">
-    <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()"></button>
+    <button class="button button-icon button-clear ion-navicon" ng-click="openMenu()">&nbsp;<img src="img/cj4U.svg"></button>
   </ion-nav-buttons>    
   <ion-nav-buttons side="right">
     <div class="buttons">
-        <button class="button button-icon" ng-click="data.grid = !data.grid" menu-toggle="right">
-          <i class="icon ion-grid" ng-if="!data.grid"></i>
-          <i class="icon ion-ios-list-outline" ng-if="data.grid"></i>
+        <button class="button button-icon" >
+       <img src="img/search.svg">
+       
+        </button>
+         <button class="button button-icon" >
+       <img src="img/cart.svg">
+       
         </button>
       </div>
   </ion-nav-buttons> 
@@ -34,14 +38,35 @@
 
         </ion-item>
       </ion-list> -->
+      <ion-slide-box on-slide-changed="slideHasChanged($index)" class="homeslider">
+  <ion-slide>
+    <div class="box "><a href="#/"><img src="img/slider/slider.png"></a></div>
+  </ion-slide>
+  <ion-slide>
+   <div class="box "><a href="#/"><img src="img/slider/slider.png"></a></div>
+  </ion-slide>
+  <ion-slide>
+   <div class="box "><a href="#/"><img src="img/slider/slider.png"></a></div>
+  </ion-slide>
+</ion-slide-box>
+
+        <ul class="dashboard-list-grid" ng-class="{'grid-container' : data.grid , '' : !data.grid}">
+            <li ng-class="{'grid col-50 col-50' : data.grid , '' : !data.grid}" class=" card-item " ng-repeat="cate in cates" ui-sref="product_menu({ cateId: cate.id })">
+              <img src="{{cate.img}}">
+            <div class="card-content">
     
-        <ul class="cate-lv1" ng-class="{'grid-container' : data.grid , '' : !data.grid}">
-            <li ng-class="{'grid col-50 col-50' : data.grid , '' : !data.grid}" class="item-background cate-lv1-item" ng-repeat="cate in cates" ui-sref="product_menu({ cateId: cate.id })"
-            style="background: url({{cate.img}}) no-repeat; background-size: cover;">
-                <div class="item-wrapper">
-                    <h2>{{cate.name}}</h2>
-                    <p>{{cate.lastText}}</p>
-                </div>
+  
+
+            <h2 class="text-center"><a href="product_menu({ cateId: cate.id })">{{cate.name}}</a></h2>
+           <div class="row">
+  <div class="col col-50 nprice"> Price: {{cate.price}}</div>
+  <div class="col col-50 text-right saleprice">Saleprice: {{cate.saleprice}}</div>
+ 
+  
+</div>
+            </div>
+
+                
             </li>
         </ul>
     </ion-content>

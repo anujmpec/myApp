@@ -103,12 +103,13 @@ a {
   padding: 0; }
   .cate-lv1 .cate-lv1-item {
     display: table;
-    width: 100%;
+    width: 48%;
     height: 140px;
-    margin-bottom: 2px;
+    margin: 1%;
     position: relative; }
     .cate-lv1 .cate-lv1-item:last-child {
-      margin-bottom: 0; }
+      margin-bottom: 0; 
+      width: 100%;}
     .cate-lv1 .cate-lv1-item.item-background:before {
       content: ' ';
       position: absolute;

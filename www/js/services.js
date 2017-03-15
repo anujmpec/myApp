@@ -74,41 +74,49 @@ app.factory('Cates', function($http) {
   var cates = [{
     id: 0,
 	class: 'item-1',
-	img: 'img/category/birthday.jpg',
+	img: 'img/category/cat.jpg',
     name: 'Birthday',
-    lastText: 'Keep Smile.It is your Birthday'
+    price:'$20',
+    saleprice:'$20'
   }, {
     id: 6,
 	class: 'item-6',
-	img: 'img/category/anniversary.jpg',
+	img: 'img/category/cat.jpg',
     name: 'Anniversary',
-    lastText: 'Two hearts with long life.'
+    price:'$20',
+    saleprice:'$20',
+    offer:'new'
   }, 
 
   {
     id: 1,
 	class: 'item-2',
-	img: 'img/category/easter.png',
+	img: 'img/category/cat.jpg',
     name: 'Easter',
-    lastText: 'Smile it is Easter.'
+    price:'$20',
+    saleprice:'$20',
+     offer:'new'
   }, {
     id: 2,
 	class: 'item-3',
-	img: 'img/category/special.jpg',
+	img: 'img/category/cat.jpg',
     name: 'Special Days',
-    lastText: 'Time to Enjoy Special Day'
+   price:'$20',
+    saleprice:'$20'
   }, {
     id: 3,
 	class: 'item-4',
-	img: 'img/category/4.jpg',
+	img: 'img/category/cat.jpg',
     name: 'Get Well Soon',
-    lastText: 'Never Give Up.Stand Up soon'
+    price:'$20',
+    saleprice:'$20'
   }, {
     id: 4,
 	class: 'item-5',
-	img: 'img/category/congrtz.png',
+	img: 'img/category/cat.jpg',
     name: 'Congratulation',
-    lastText: 'Yeeh!!! You did this.'
+   price:'$20',
+    saleprice:'$20'
   }];
 
   return {
