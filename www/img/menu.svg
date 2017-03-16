@@ -1,0 +1,20 @@
+<svg width="27" height="20" viewBox="0 0 27 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:figma="http://www.figma.com/figma/ns">
+<title>menu-cion</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-2535 777)" figma:type="canvas">
+<g id="menu-cion" style="mix-blend-mode:normal;" figma:type="frame">
+<g id="Line" style="mix-blend-mode:normal;" figma:type="line">
+<use xlink:href="#path0_stroke" transform="translate(2535 -775)" fill="#FFFFFF" style="mix-blend-mode:normal;"/>
+</g>
+<g id="Line" style="mix-blend-mode:normal;" figma:type="line">
+<use xlink:href="#path0_stroke" transform="translate(2535 -766)" fill="#FFFFFF" style="mix-blend-mode:normal;"/>
+</g>
+<g id="Line" style="mix-blend-mode:normal;" figma:type="line">
+<use xlink:href="#path0_stroke" transform="translate(2535 -757)" fill="#FFFFFF" style="mix-blend-mode:normal;"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_stroke" d="M 1 -2C 0.447715 -2 0 -1.55228 0 -1C 0 -0.447715 0.447715 0 1 0L 1 -2ZM 26 0C 26.5523 0 27 -0.447715 27 -1C 27 -1.55228 26.5523 -2 26 -2L 26 0ZM 1 0L 26 0L 26 -2L 1 -2L 1 0Z"/>
+</defs>
+</svg>

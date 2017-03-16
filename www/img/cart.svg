@@ -1,0 +1,12 @@
+<svg width="22" height="20" viewBox="0 0 22 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:figma="http://www.figma.com/figma/ns">
+<title>Union</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-3465 782)" figma:type="canvas">
+<g id="Union" style="mix-blend-mode:normal;" figma:type="vector-operation">
+<use xlink:href="#path0_fill" transform="translate(3466 -782)" fill="#FFFFFF" style="mix-blend-mode:normal;"/>
+</g>
+</g>
+<defs>
+<path id="path0_fill" fill-rule="evenodd" d="M 6.72539 2L 13.8888 2C 15.3476 2 16.5949 3.04932 16.8447 4.48651L 18.5687 14.4095C 18.8874 16.2442 17.475 17.923 15.6128 17.923L 5.00139 17.923C 3.13921 17.923 1.72686 16.2442 2.04558 14.4095L 3.76958 4.48651C 4.01934 3.04932 5.26665 2 6.72539 2ZM 1.79912 4.14417C 2.21526 1.74884 4.29412 0 6.72539 0L 13.8888 0C 16.3201 0 18.399 1.74884 18.8151 4.14417L 20.5391 14.0671C 21.0704 17.125 18.7165 19.923 15.6128 19.923L 5.00139 19.923C 1.89776 19.923 -0.456126 17.125 0.0751237 14.0671L 1.79912 4.14417ZM 10.3072 7.30121C 8.55352 7.30121 7.41314 6.11877 7.41314 4.98071L 5.41314 4.98071C 5.41314 7.51038 7.75957 9.30121 10.3072 9.30121C 12.8547 9.30121 15.2011 7.51038 15.2011 4.98071L 13.2011 4.98071C 13.2011 6.11877 12.0608 7.30121 10.3072 7.30121Z"/>
+</defs>
+</svg>

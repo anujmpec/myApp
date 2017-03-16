@@ -1,0 +1,24 @@
+<svg width="20" height="20" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:figma="http://www.figma.com/figma/ns">
+<title>Group</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-3433 782)" figma:type="canvas">
+<g id="Group" style="mix-blend-mode:normal;" figma:type="frame">
+<g id="Ellipse 17" style="mix-blend-mode:normal;" figma:type="ellipse">
+<mask id="mask0_outline_ins">
+<use xlink:href="#path0_fill" fill="white" transform="translate(3433.5 -781.17)"/>
+</mask>
+<g mask="url(#mask0_outline_ins)">
+<use xlink:href="#path1_stroke_2x" transform="translate(3433.5 -781.17)" fill="#FFFFFF" style="mix-blend-mode:normal;"/>
+</g>
+</g>
+<g id="Line 12" style="mix-blend-mode:normal;" figma:type="line">
+<use xlink:href="#path2_stroke" transform="matrix(0.726236 0.687446 -0.716999 0.697074 3445.61 -767.649)" fill="#FFFFFF" style="mix-blend-mode:normal;"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 14.7107 7.05607C 14.7107 10.953 11.4176 14.1121 7.35533 14.1121C 3.29309 14.1121 0 10.953 0 7.05607C 0 3.15911 3.29309 0 7.35533 0C 11.4176 0 14.7107 3.15911 14.7107 7.05607Z"/>
+<path id="path1_stroke_2x" d="M 12.7107 7.05607C 12.7107 9.77098 10.3921 12.1121 7.35533 12.1121L 7.35533 16.1121C 12.443 16.1121 16.7107 12.1351 16.7107 7.05607L 12.7107 7.05607ZM 7.35533 12.1121C 4.31856 12.1121 2 9.77098 2 7.05607L -2 7.05607C -2 12.1351 2.26763 16.1121 7.35533 16.1121L 7.35533 12.1121ZM 2 7.05607C 2 4.34116 4.31856 2 7.35533 2L 7.35533 -2C 2.26763 -2 -2 1.97706 -2 7.05607L 2 7.05607ZM 7.35533 2C 10.3921 2 12.7107 4.34116 12.7107 7.05607L 16.7107 7.05607C 16.7107 1.97706 12.443 -2 7.35533 -2L 7.35533 2Z"/>
+<path id="path2_stroke" d="M 1 -2C 0.447715 -2 0 -1.55228 0 -1C 0 -0.447715 0.447715 0 1 0L 1 -2ZM 7.21695 0C 7.76924 0 8.21695 -0.447715 8.21695 -1C 8.21695 -1.55228 7.76924 -2 7.21695 -2L 7.21695 0ZM 1 0L 7.21695 0L 7.21695 -2L 1 -2L 1 0Z"/>
+</defs>
+</svg>
