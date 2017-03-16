@@ -1,3 +1,4 @@
+var lafoto = '';
 angular.module('hoss_app.controllers', [])
 
 
@@ -110,20 +111,44 @@ angular.module('hoss_app.controllers', [])
         })
     }
   
-})
-
-    .controller('ProductMenuCtrl', function ( $ionicSideMenuDelegate,$scope, $ionicModal, $timeout, $state, $stateParams, Cates, Products) {
-        $scope.cate = Cates.get($stateParams.cateId); 
+}).controller('ProductMenuCtrl', function ( $ionicSideMenuDelegate,$scope, $ionicModal, $timeout, $state, $stateParams, Cates, Products,$ionicLoading,allProduct ) {
+      //  $scope.cate = Cates.get($stateParams.cateId); 
         $scope.data = {
-    grid: false
-  };
+            grid: false
+          };
+          
    $scope.openMenu = function () {
     $ionicSideMenuDelegate.toggleLeft();
   }
-        $scope.mycategories=Cates.all();
-        console.log("in product menu");     
+$scope.showCategory = function () {
+    $ionicLoading.show({ template: '<span class="item-icon-left"> Fetching Categories...<ion-spinner icon="ripple" class="spinner-assertive"/> </span>', animation: 'fade-in',showBackdrop: true, maxWidth: 200,showDelay: 0 });
+        $scope.mycategories=Cates.all().then(function(user){
+            $ionicLoading.hide();
+            $scope.categoryList=user;
+
+        });    
+    };
+
+$scope.showProduct = function () {
+
+    //$ionicLoading.show({ template: '<span class="item-icon-left"> Fetching Categories...<ion-spinner icon="ripple" class="spinner-assertive"/> </span>', animation: 'fade-in',showBackdrop: true, maxWidth: 200,showDelay: 0 });
+        $scope.myproducts=allProduct.productList().then(function(response){
+            $ionicLoading.hide();
+            console.log(response.Items);
+            $scope.allmyProducts=response.Items;
+            lafoto=response.Items;
+        });    
+    };
+    $scope.proList = function () {
+            console.log($stateParams.cateName);
+            console.log(lafoto);
+            $scope.catG=$stateParams.cateName;
+            $scope.particularListItem=lafoto;
+    }
+    
+
         $scope.products = Products.all();
-        console.log($scope.mycategories);
+        // console.log($scope.mycategories);
         $scope.productByCate = Products.getByCate($stateParams.cateId);
 
         $ionicModal.fromTemplateUrl('templates/app/product_detail.html', {

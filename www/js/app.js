@@ -4,9 +4,13 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 angular.module('hoss_app', ['ionic', 'hoss_app.controllers', 'hoss_app.services','ngMessages'])
+.constant("ROUTES", {
+        Image: "http://admin.craftedjustforu.com/images/data/"
+    })
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,$rootScope, ROUTES) {
   $ionicPlatform.ready(function() {
+    $rootScope.ROUTES = ROUTES;
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -28,7 +32,8 @@ angular.module('hoss_app', ['ionic', 'hoss_app.controllers', 'hoss_app.services'
         }
     };
 })
-    .config(function ($stateProvider, $urlRouterProvider) {
+    .config(function ($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+        $ionicConfigProvider.tabs.position('bottom'); 
         $stateProvider
             .state('intro', {
                 url: "/intro",
@@ -37,7 +42,7 @@ angular.module('hoss_app', ['ionic', 'hoss_app.controllers', 'hoss_app.services'
             })
 
             .state('product_menu', {
-                url: "/product/menu/:cateId",
+                url: "/product/menu/:cateName",
                 templateUrl: "templates/app/product_menu.html",
                 controller: 'ProductMenuCtrl'
             })
@@ -92,7 +97,7 @@ angular.module('hoss_app', ['ionic', 'hoss_app.controllers', 'hoss_app.services'
             });
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/app/category');
+        $urlRouterProvider.otherwise('/intro');
     });
 
 

@@ -47,8 +47,55 @@ app.factory('imageCapt', function($q, $cordovaCamera) {
     };
       
 });
+app.filter('spaceless',function() {
+    return function(input) {
+        if (input) {
+            return input.replace(/\s+/g, '_');    
+        }
+    }
+});
+app.factory('Cates', function($http,$ionicLoading) {
+  return {
+    all: function() {
+      return $http({     
+           crossDomain: true,
+            method: 'GET',
+            dataType: 'jsonp',
+            url: 'https://jq55k0ahvf.execute-api.us-east-1.amazonaws.com/dev/category'
+        }).then(function(response){ 
+        	console.log(response);
+        return response.data;
+      },
+       function(data) {
+        return data;
+        $ionicLoading.show({ template: 'Some issue !', noBackdrop: true, duration: 2000 });
+    });
+    }
+  };
+});
+app.factory('allProduct', function($http,$ionicLoading) {
+	console.log("in all Product service");
+ return {
+    productList: function() {
+    	return $http({     
+            crossDomain: true,
+            method: 'GET',
+            dataType: 'jsonp',
+            url: 'https://jq55k0ahvf.execute-api.us-east-1.amazonaws.com/dev/card'
+        }).then(function(response){ 
+        	console.log(response);
+       	return response.data;
+      },
+       function(data) {
+       	console.log(data);
+        return data;
+        $ionicLoading.show({ template: 'Some issue !', noBackdrop: true, duration: 2000 });
+    });
+    }
+  };
+});
 
-app.factory('Cates', function($http) {
+app.factory('Cates2', function($http) {
 
 	 //  return {
   //   myPermission: function(type,o_id) {
@@ -74,49 +121,41 @@ app.factory('Cates', function($http) {
   var cates = [{
     id: 0,
 	class: 'item-1',
-	img: 'img/category/cat.jpg',
+	img: 'img/category/birthday.jpg',
     name: 'Birthday',
-    price:'$20',
-    saleprice:'$20'
+    lastText: 'Keep Smile.It is your Birthday'
   }, {
     id: 6,
 	class: 'item-6',
-	img: 'img/category/cat.jpg',
+	img: 'img/category/anniversary.jpg',
     name: 'Anniversary',
-    price:'$20',
-    saleprice:'$20',
-    offer:'new'
+    lastText: 'Two hearts with long life.'
   }, 
 
   {
     id: 1,
 	class: 'item-2',
-	img: 'img/category/cat.jpg',
+	img: 'img/category/easter.png',
     name: 'Easter',
-    price:'$20',
-    saleprice:'$20',
-     offer:'new'
+    lastText: 'Smile it is Easter.'
   }, {
     id: 2,
 	class: 'item-3',
-	img: 'img/category/cat.jpg',
+	img: 'img/category/special.jpg',
     name: 'Special Days',
-   price:'$20',
-    saleprice:'$20'
+    lastText: 'Time to Enjoy Special Day'
   }, {
     id: 3,
 	class: 'item-4',
-	img: 'img/category/cat.jpg',
+	img: 'img/category/4.jpg',
     name: 'Get Well Soon',
-    price:'$20',
-    saleprice:'$20'
+    lastText: 'Never Give Up.Stand Up soon'
   }, {
     id: 4,
 	class: 'item-5',
-	img: 'img/category/cat.jpg',
+	img: 'img/category/congrtz.png',
     name: 'Congratulation',
-   price:'$20',
-    saleprice:'$20'
+    lastText: 'Yeeh!!! You did this.'
   }];
 
   return {
@@ -133,10 +172,9 @@ app.factory('Cates', function($http) {
        function(data) {
        	console.log(data);
         return data;
-
         $ionicLoading.show({ template: 'Some issue !', noBackdrop: true, duration: 2000 });
     });
-      return cates;
+      //return cates;
     },
     get: function(cateId) {
       for (var i = 0; i < cates.length; i++) {
