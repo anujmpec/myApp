@@ -30,11 +30,11 @@
   background: rgba(255, 31, 0, 0.8) !important;
   opacity: 1.00; }
 
-.dashboard-list-grid {
+.ShortCate {
   list-style: none;
   margin: 0;
   padding: 0; }
-  .dashboard-list-grid li.card-item {
+  .ShortCate li.cardCAt {
     width: 48%;
     margin: 1%;
     float: left;
@@ -43,25 +43,32 @@
     overflow: hidden;
     background: #fff;
     box-shadow: 0 0 5px #ccc; }
-    .dashboard-list-grid li.card-item img {
+    .ShortCate li.cardCAt .like {
+      position: absolute;
+      padding: 10px; }
+      .ShortCate li.cardCAt .like img {
+        height: 20px !important; }
+    .ShortCate li.cardCAt img {
       width: 100%;
       height: 150px;
       clear: both; }
-    .dashboard-list-grid li.card-item .card-content {
+    .ShortCate li.cardCAt .cardCont {
       display: block;
       padding: 10px 0px 0 0 0; }
-      .dashboard-list-grid li.card-item .card-content h2 {
+      .ShortCate li.cardCAt .cardCont h2 {
         font-size: 16px;
         font-weight: normal;
         color: #555;
         margin: 0;
         padding: 0; }
-        .dashboard-list-grid li.card-item .card-content h2 a {
+        .ShortCate li.cardCAt .cardCont h2 a {
           color: #555; }
-      .dashboard-list-grid li.card-item .card-content div.saleprice {
-        color: #FE7A00; }
-      .dashboard-list-grid li.card-item .card-content div.nprice {
-        text-decoration: line-through; }
+      .ShortCate li.cardCAt .cardCont div.saleprice {
+        color: #FE7A00;
+        font-size: 14px; }
+      .ShortCate li.cardCAt .cardCont div.nprice {
+        text-decoration: line-through;
+        font-size: 14px; }
 
 .bar {
   min-height: 40px;
@@ -102,11 +109,18 @@
   width: 50%;
   margin-bottom: 0;
   float: left; }
-  .cate-lv1 .cate-lv1-item .item-wrapper h2 {
-    font-size: 25px; }
-    .cate-lv1 .cate-lv1-item .item-wrapper h2 span {
-      font-weight: lighter;
+  .cate-lv1 .cate-lv1-item .item-wrapper {
+    padding: 10px; }
+    .cate-lv1 .cate-lv1-item .item-wrapper h2 {
       font-size: 20px; }
+    .cate-lv1 .cate-lv1-item .item-wrapper p {
+      font-weight: lighter;
+      font-size: 12px;
+      color: #fff !important;
+      line-height: 1em; }
+
+.cate-lv1 li:last-child {
+  width: 100%; }
 
 a.skipbtn {
   position: absolute;

@@ -50,9 +50,9 @@
   </ion-slide>
 </ion-slide-box>
         <ul class="cate-lv1" ng-class="{'grid-container' : data.grid , '' : !data.grid}">
-            <li ng-class="{'grid col-50 col-50' : data.grid , '' : !data.grid}" class="item-background cate-lv1-item" ng-repeat="cate in categoryList.Items" ui-sref="product_menu({ cateName: '{{cate.displayName}}' })"
+            <li ng-class="{'grid col-50 col-50' : data.grid , '' : !data.grid}" class="item-background cate-lv1-item {{cate.color}}" ng-repeat="cate in categoryList.Items" ui-sref="product_menu({ cateName: '{{cate.displayName}}' })"
             style="background: url(http://admin.craftedjustforu.com/images/data/400px/category/{{cate.image}}) no-repeat; background-size: cover;">
-                <div class="item-wrapper">
+                <div class="item-wrapper ">
                     <h2>{{cate.displayName}}</h2>
                     <p>{{cate.desc}}</p>
                 </div>

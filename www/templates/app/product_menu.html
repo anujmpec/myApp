@@ -2,6 +2,18 @@
  <ion-nav-buttons>
                 <button class="button button-clear button-icon" ng-click="goBack()" ><i class="ion-chevron-left"></i></button>
 </ion-nav-buttons>
+<ion-nav-buttons side="right">
+   <div class="buttons">
+        <button class="button button-icon" >
+       <img src="img/search.svg">
+       
+        </button>
+         <button class="button button-icon" >
+       <img src="img/cart.svg">
+       
+        </button>
+      </div>
+  </ion-nav-buttons> 
  <!--    <ion-header-bar align-title="center" class="bar-light">
         <ion-nav-bar align-title="center">
             <ion-nav-buttons>
@@ -10,16 +22,25 @@
         </ion-nav-bar>
     </ion-header-bar> -->
     <ion-content>
-<div class="cate-lv2"> 
-            <div class="card cate-lv2-item" ng-repeat="product in particularListItem" >
-                <div class="item item-thumbnail-left item-text-wrap" ng-click="productDetail({{product.id}})" ng-show="catG==product.categoryName">
-                    <img ng-src="{{ROUTES.Image}}400px/{{product.name | spaceless | lowercase}}/{{product.images[0]}}" onerror="this.src='img/product/no_product.jpg'"/>
-                    <h2>{{product.name}}</h2>
-                    <div class=" item-text-wrap">{{product.desc}}</div>   <!-- price -->
-                    <div class="like"><i class="ion-heart"></i> {{product.like}}</div>
+    <ul class="ShortCate"> 
+            <li class="cardCAt" ng-repeat="product in particularListItem" >
+                <div class="item-wrapper" ng-click="productDetail({{product.id}})" ng-if="catG==product.categoryName">
+                <div class="catImg">
+                <div class="like"><img src="img/like.svg">{{product.like}}</div>
+                    <img ng-src="{{ROUTES.Image}}400px/{{product.name | spaceless | lowercase}}/{{product.images[0]}}" onerror="this.src='img/product/no_product.jpg'"/></div>
+                    <div class="cardCont">
+                    <h2 class="text-center">{{product.name}}</h2>
+                   <div class="row">
+  <div class="col col-50 ">Price: ₹<span class="nprice">{{product.price}}</span></div>
+  <div class="col col-50 text-right saleprice">Sale Price: ₹15 </div>
+ 
+</div>
+</div>
+                 
+                    
                 </div>
-            </div>
-        </div>
+            </li>
+        </ul>
     </ion-content>
 </ion-view>
 
