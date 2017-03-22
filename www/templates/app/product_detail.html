@@ -1,42 +1,67 @@
 <ion-modal-view>
     <ion-content class="header-background">
         <ion-header-bar align-title="center">
-            <h1 class="title">{{cate.name}}</h1>
-            <button class="button button-clear button-icon icon ion-android-close" ng-click="closeModal()"></button>
+            <h1 class="title">{{productID}}</h1>
+            <button class="button button-clear button-icon icon ion-android-close" ng-click="closeMainModal()"></button>
         </ion-header-bar>
 
         <form>
-            <div class="product-header" style="background: url({{product.imgLg}}) no-repeat; background-size: cover;">
-                <h2 class="product-name">{{product.name}}</h2>
-                <div class="product-price">{{product.price}}</div>
+            <div ng-repeat="product in particularListItem" ng-if="productID==product.code">
+              <ion-slide-box on-slide-changed="slideChanged(index)" active-slide="activeSlide">
+                <ion-slide class="product-header" ng-repeat="myTmage in product.images">       
+                  <!-- <ion-scroll direction="xy" scrollbar-x="false" scrollbar-y="false"
+                  zooming="true" min-zoom="{{zoomMin}}" style="width: 100%; height: 100%"
+                  delegate-handle="scrollHandle{{$index}}" on-scroll="updateSlideStatus(activeSlide)" on-release="updateSlideStatus(activeSlide)"> -->   
+                  <ion-scroll direction="x" zooming="true" style="width: 100%; height: 100%;">
+                  <div class="image" style="background-image: url( {{ROUTES.Image}}400px/{{product.name | spaceless | lowercase}}/{{myTmage}})" onerror="this.src='img/product/no_product.jpg'" overflow-scroll="false"> 
+                  <!--  ng-click="showImages('{{ROUTES.Image}}400px/{{product.name | spaceless | lowercase}}/{{myTmage}}')" -->
+                     <h2 class="product-name">{{product.name |uppercase}}</h2>
+            <div class="product-price">{{product.prices[0].prefix}} {{product.prices[0].price}} </div>
                 <div class="product-like">
                     <button class="button button-clear" ng-click="doLike()">
                         <i class="ion-heart"></i>
                     </button>
                 </div>
-            </div>
+                  </div>
+                </ion-scroll>
+              </ion-slide>
+            </ion-slide-box>
+         <!--    <div class="product-header" style="background: url({{ROUTES.Image}}400px/{{product.name | spaceless | lowercase}}/{{product.images[0]}}) no-repeat; background-size: cover;">
+                <h2 class="product-name">{{product.name}}</h2>
+                <div class="product-price">{{product.prices[0].price}}{{product.prices[0].prefix}}</div>
+                <div class="product-like">
+                    <button class="button button-clear" ng-click="doLike()">
+                        <i class="ion-heart"></i>
+                    </button>
+                </div>
+            </div> -->
             <div class="product-body">
                 <div class="product-info">
-                    {{product.details}}
+                    {{product.title}}
                 </div>
-                <div class="product-info" ng-if="product.Ingredients">
-                    Ingredients : - {{product.Ingredients}}
+                <div class="item item-divider">Dimention Properties</div>
+                <div class="product-info" ng-if="product.color">
+                    <span class="colorTitle">Color</span> : - {{product.color}} </br>
+                    <span class="colorTitle">Dimension</span> : - {{product.size}} </div>
+                <div class="item item-divider">Description</div>
+                <div class="product-info">
+                    {{product.desc}}
                 </div>
-                <div class="product-quantity">
-                    <label class="item item-input">
+                 <!--    <label class="item item-input">
                         <input type="text" placeholder="Enter Quantity Here...">
                     </label>
-                </div>
+                </div> -->
                 <div class="add-to-cart">
-                    <button class="button button-block button-balanced" ng-click="doOrder()">
+                    <button class="button button-block button-theme" ng-click="doOrder()">
                         Add to Cart
                     </button>
                 </div>
-                <div class="add-to-favorites">
-                    <button class="button button-block button-dark">
-                        Add to Favorites
+             <!--    <div class="add-to-favorites">
+                <button class="button button-block theme" ng-click="addwishlist(true,product.code)">
+                        Add to Wishlist
                     </button>
-                </div>
+                </div> -->
+            </div>
             </div>
         </form>
     </ion-content>

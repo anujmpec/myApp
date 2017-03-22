@@ -45,13 +45,12 @@ opacity: 1.00;
 			overflow: hidden;
 			background: #fff;
 			box-shadow: 0 0 5px #ccc;
-			.like{position: absolute; padding: 10px;
+			.like{position: absolute; padding: 10px; top: 0;
 				img{height: 20px!important}
-			}
-			img{width: 100%; height:150px; clear: both;}
+			} 
+			img{width: 100%;  clear: both; max-height: 150px; overflow: hidden;}
 			.cardCont{display:block; padding:10px 0px 0 0 0;
-				h2{font-size: 16px; font-weight: normal; color: #555; margin: 0; padding: 0;
-					a{color: #555;}}
+				h2{font-size: 16px; font-weight: normal; color: #555; margin: 0; padding: 0; width: 100%; text-align: center;color: #555;}
 				div.saleprice{color:#FE7A00; font-size: 14px;}
 				div.nprice{text-decoration:line-through;font-size: 14px;}
 			}
@@ -119,4 +118,9 @@ background: linear-gradient(to bottom, #fe7a00 0%,#e15151 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fe7a00', endColorstr='#e15151',GradientType=0 );
 	color: #fff
 	}
+}
+.button-theme{/* Rectangle 25 */
+background: linear-gradient(180deg, #FF8403 0%, #FF5044 100%);
+opacity: 1.00;
+border-radius: 21px;
 }

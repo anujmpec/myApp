@@ -34,6 +34,7 @@ angular.module('hoss_app', ['ionic', 'hoss_app.controllers', 'hoss_app.services'
 })
     .config(function ($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
         $ionicConfigProvider.tabs.position('bottom'); 
+        $ionicConfigProvider.scrolling.jsScrolling(true);
         $stateProvider
             .state('intro', {
                 url: "/intro",
@@ -70,7 +71,25 @@ angular.module('hoss_app', ['ionic', 'hoss_app.controllers', 'hoss_app.services'
                         controller: 'ProductMenuCtrl'
                     }
                 }
-            })            
+            })   
+             .state('app.product_menu', {       
+                url: "/product/menu/:cateName",
+                views: {
+                    'home-tab': {
+                        templateUrl: "templates/app/product_menu.html",
+                        controller: 'ProductMenuCtrl'
+                    }
+                }
+            })
+             .state('app.wishlist', {       
+                url: "/wishlist",
+                views: {
+                    'wishlist-tab': {
+                        templateUrl: "templates/app/wishlist.html",
+                        controller: 'ProductMenuCtrl'
+                    }
+                }
+            })             
             .state('app.shopping_cart', {
                 url: "/shopping_cart",
                 views: {

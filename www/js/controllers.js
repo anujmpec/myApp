@@ -1,17 +1,15 @@
 var lafoto = '';
 angular.module('hoss_app.controllers', [])
-
-
     .controller('IntroCtrl', function ($scope) {
 
     })
    
 
-    .controller('AppCtrl', function ($scope, Cates, Products, Carts) {
+    .controller('AppCtrl', function ($scope, Cates) {
         $scope.cates = Cates.all();
         $scope.productData = {};
 
-        $scope.carts = Carts.all();
+        //$scope.carts = Carts.all();
 
         $scope.goBack = function () {
             window.history.back();
@@ -111,12 +109,31 @@ angular.module('hoss_app.controllers', [])
         })
     }
   
-}).controller('ProductMenuCtrl', function ( $ionicSideMenuDelegate,$scope, $ionicModal, $timeout, $state, $stateParams, Cates, Products,$ionicLoading,allProduct ) {
+}).controller('ProductMenuCtrl', function ( $ionicSideMenuDelegate,$http,$scope,$ionicBackdrop, $rootScope,$ionicModal, $timeout, $state, $stateParams, Cates,$ionicLoading,allProduct, $ionicSlideBoxDelegate, $ionicScrollDelegate,wishlistUpdate) {
       //  $scope.cate = Cates.get($stateParams.cateId); 
         $scope.data = {
             grid: false
           };
-          
+           $scope.zoomMin = 1;
+
+  $scope.showImages = function(index) {
+    $scope.activeSlide = index;
+    $scope.showModal('templates/app/gallery-zoomview.html');
+  };
+  $scope.showModal = function(templateUrl) {
+    $ionicModal.fromTemplateUrl(templateUrl, {
+      scope: $scope
+    }).then(function(modal) {
+      $scope.modal = modal;
+      $scope.modal.show();
+    });
+  }
+
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+    $scope.modal.remove()
+
+  };
    $scope.openMenu = function () {
     $ionicSideMenuDelegate.toggleLeft();
   }
@@ -130,26 +147,47 @@ $scope.showCategory = function () {
     };
 
 $scope.showProduct = function () {
-
     //$ionicLoading.show({ template: '<span class="item-icon-left"> Fetching Categories...<ion-spinner icon="ripple" class="spinner-assertive"/> </span>', animation: 'fade-in',showBackdrop: true, maxWidth: 200,showDelay: 0 });
         $scope.myproducts=allProduct.productList().then(function(response){
             $ionicLoading.hide();
             console.log(response.Items);
             $scope.allmyProducts=response.Items;
-            lafoto=response.Items;
+            $rootScope.particularListItem=response.Items;
         });    
     };
     $scope.proList = function () {
             console.log($stateParams.cateName);
-            console.log(lafoto);
+            //console.log(lafoto);
             $scope.catG=$stateParams.cateName;
-            $scope.particularListItem=lafoto;
-    }
+            //$rootScope.particularListItem=lafoto;
+    };
+    $scope.wishList= function(){
+         $http({
+                    crossDomain: true,
+                    method: 'GET',
+                    dataType: 'jsonp',
+                url : "https://jq55k0ahvf.execute-api.us-east-1.amazonaws.com/dev/wishlist/12345",
+                 headers: {
+                        "Content-Type": "application/json"
+                    }
+            }).then(function (response){
+                $ionicLoading.hide();
+                console.log(response.data.Items);
+                $scope.wish=response.data.Items;
+            //$scope.userData = response.data;
+            // if(response.data.successful==true){ 
+            //     $state.go('app.po');
+            //     $rootScope.name=response.data.data.userName;
+            //     localStorage.setItem('branch_id', response.data.data.branches[0]);
+            //     $rootScope.isLogin = true;
+            // }else{  
+            //     user.password="";
+            //     $ionicLoading.show({ template: 'Invalid username or password.', duration: 3000});
+            // }
+    })};
     
-
-        $scope.products = Products.all();
         // console.log($scope.mycategories);
-        $scope.productByCate = Products.getByCate($stateParams.cateId);
+       // $scope.productByCate = Products.getByCate($stateParams.cateId);
 
         $ionicModal.fromTemplateUrl('templates/app/product_detail.html', {
             scope: $scope
@@ -157,7 +195,7 @@ $scope.showProduct = function () {
             $scope.modal = modal;
         });
         // Triggered in the product modal to close it
-        $scope.closeModal = function () {
+        $scope.closeMainModal = function () {
             $scope.modal.hide();
         };
         
@@ -174,14 +212,24 @@ $scope.showProduct = function () {
             btn_like.find('i').toggleClass('active');
         }
         // Open the product modal
-        $scope.productDetail = function ($id) {
-            $scope.product = Products.get($id);
+        $scope.productDetail = function (myid) {
+            $scope.productID = myid;
+            console.log($scope.productID);
             $scope.modal.show();
         };
 
         $scope.goBack = function () {
             window.history.back();
         };
+        $scope.addwishlist=function (status,pID) {
+            console.log(status);
+            console.log(pID);
+            $scope.myproducts=wishlistUpdate.addIN(status,pID).then(function(response){
+            $ionicLoading.hide();
+            $scope.modal.hide();
+            console.log(response);
+        })
+        }
 
     })
 

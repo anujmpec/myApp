@@ -28,16 +28,7 @@
       </div>
     </ion-header-bar> -->
     <ion-content>
-<!--     <ion-list class="cate-lv1" ng-class="{'grid-container' : data.grid , '' : !data.grid}">
-        <ion-item ng-class="{'grid col-50 col-50' : data.grid , '' : !data.grid}" class="item-background cate-lv1-item" ng-repeat="cate in cates" ui-sref="product_menu({ cateId: cate.id })"
-            style="background: url({{cate.img}}) no-repeat; background-size: cover;">
-          <div class="item-wrapper">
-                    <h2>{{cate.name}}</h2>
-                    <p>{{cate.lastText}}</p>
-                </div>
 
-        </ion-item>
-      </ion-list> -->
       <ion-slide-box on-slide-changed="slideHasChanged($index)" class="homeslider">
   <ion-slide>
     <div class="box "><a href="#/"><img src="img/slider/slider.png"></a></div>
@@ -49,10 +40,29 @@
    <div class="box "><a href="#/"><img src="img/slider/slider.png"></a></div>
   </ion-slide>
 </ion-slide-box>
-        <ul class="cate-lv1" ng-class="{'grid-container' : data.grid , '' : !data.grid}">
-            <li ng-class="{'grid col-50 col-50' : data.grid , '' : !data.grid}" class="item-background cate-lv1-item {{cate.color}}" ng-repeat="cate in categoryList.Items" ui-sref="product_menu({ cateName: '{{cate.displayName}}' })"
-            style="background: url(http://admin.craftedjustforu.com/images/data/400px/category/{{cate.image}}) no-repeat; background-size: cover;">
-                <div class="item-wrapper ">
+   <!--  <ion-list class="cate-lv1" ng-class="grid-container">
+        <ion-item ng-class="grid" class="item-background cate-lv1-item" ng-repeat="cate in categoryList.Items" ui-sref="app.product_menu({ cateName: '{{cate.displayName}}' })"
+            style="background: url({{ROUTES.Image}}400px/category/{{cate.image}}) no-repeat; background-size: cover;">
+          <div class="item-wrapper">
+                    <h2>{{cate.name}}</h2>
+                    <p>{{cate.lastText}}</p>
+                </div>
+        </ion-item>
+      </ion-list> -->
+       <!--  <ul class="cate-lv1" ng-class="{'grid-container' : data.grid , '' : !data.grid}">
+            <li ng-class="{'grid col-50 col-50' : data.grid , '' : !data.grid}" class="item-background cate-lv1-item" ng-repeat="cate in categoryList.Items" ui-sref="product_menu({ cateName: '{{cate.displayName}}' })"
+            style="background: url({{ROUTES.Image}}400px/category/{{cate.image}}) no-repeat; background-size: cover;">
+                <div class="item-wrapper">
+                    <h2>{{cate.displayName}}</h2>
+                    <p>{{cate.desc}}</p>
+                </div>
+            </li>
+        </ul> -->
+        
+         <ul class="cate-lv1" ng-class="grid-container">
+            <li ng-class="grid" class="item-background cate-lv1-item" ng-repeat="cate in categoryList.Items" ui-sref="app.product_menu({ cateName: '{{cate.displayName}}' })"
+            style="background: url({{ROUTES.Image}}400px/category/{{cate.image}}) no-repeat; background-size: cover;">
+                <div class="item-wrapper">
                     <h2>{{cate.displayName}}</h2>
                     <p>{{cate.desc}}</p>
                 </div>
